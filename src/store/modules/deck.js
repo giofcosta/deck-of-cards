@@ -2,7 +2,7 @@ import { repositoryFactory } from "../../repository/repositoryFactory";
 const postRepository = repositoryFactory.get("deck");
 
 const state = {
-  deckID: 0
+  piles: new Array() //{deckID, deck, rotationCard}
 };
 
 const getters = {
@@ -15,19 +15,17 @@ const mutations = {
   updateDeckID: (state, deckID) => {
     state.deckID = deckID;
   },
-  addDeckID(state, deckID) {
-    console.log(deckID);
-    state.deckID = deckID;
+  addPile(state, pile) {
+    console.log(pile);
+    state.piles.push(pile);
   }
 };
 
 const actions = {
   async createDeck(context, payload) {
     let { data, status } = await postRepository.createDeck(payload);
-
     if (status == 200) {
-      
-      context.commit("addDeckID", data.deck_id);
+      context.commit("addPile", {...payload, deckID: data.deck_id});
     }
   },
 
