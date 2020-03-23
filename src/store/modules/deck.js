@@ -2,7 +2,7 @@ import { repositoryFactory } from "../../repository/repositoryFactory";
 const postRepository = repositoryFactory.get("deck");
 
 const state = {
-  piles: new Array() //{deckID, deck, rotationCard}
+  piles: new Array() //{deckID, cards, rotationCard}
 };
 
 const getters = {
