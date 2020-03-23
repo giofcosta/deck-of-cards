@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 const formCards = new Array();
 for (var i = 0; i < 10; i++) {
@@ -31,13 +31,12 @@ export default {
       rotationCard: ""
     };
   },
-  computed: {
-    ...mapGetters("deck", ["deckDescription"])
-  },
   methods: {
     ...mapActions("deck", ["createDeck"]),
     addDeck() {
-      this.createDeck({cards: this.cards, rotationCard: this.rotationCard});
+      this.createDeck({cards: this.cards, rotationCard: this.rotationCard}).then(() => {
+        this.$router.push(`/deck/${this.$store.state.deck.deckID}`);
+      });
     }
     // ...mapActions(["someState"])
   }
