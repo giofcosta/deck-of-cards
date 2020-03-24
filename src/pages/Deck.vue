@@ -1,5 +1,10 @@
 <template>
   <div>
+    <app-header title="Ordered Pile"></app-header>
+
+    <div id="deck-panel">
+
+    </div>
     <button @click="addDeck">Create deck ID</button>
     {{deckDescription}}
   </div>
@@ -8,9 +13,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import AppHeader from "../components/Header";
 
 export default {
   name: "deck",
+   components: {
+    AppHeader
+  },
   computed: {
     //...mapState(),
     ...mapGetters("deck", ["deckDescription"])
@@ -30,3 +39,4 @@ export default {
   }
 };
 </script>
+

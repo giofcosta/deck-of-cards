@@ -101,6 +101,7 @@ export default {
       color: #b1b1b1;
       display: block;
       width: 100%;
+      margin-top: 24px;
     }
   }
 
@@ -143,7 +144,7 @@ export default {
     line-height: normal;
     letter-spacing: normal;
     color: #fbe500;
-    margin-top: 150px;
+    margin-top: 100px;
   }
 }
 </style>
